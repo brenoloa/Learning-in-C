@@ -16,27 +16,38 @@ int main(void){
 float saldo_atual = 1200;
 float saque, deposito, emprestimo, parcela, pix;
 int funcao, meses;
+
 char chave_pix[100];
-char nome[100];
 float juros = 1.13; // 13%%  
+char login1[] = "admin";
+char login2[99]; 
+char password1[] = "admin"; 
+char password2[99];
+
+ 
+
 // variaveis
+
+
+
 puts("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 puts("-=-=-=-=-= CAIXA ELETRONICO -=-=-=-=-=");
 puts("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 puts("-=-=-=-= DIGITE SEU USUARIO -=-=-=-=-=");
 puts("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 printf("USER: ");
-if (scanf("%99s", nome) != 1) {
-    printf("Erro ao ler o nome.\n");
-    return 1;
-}
+scanf("%s", &login2);
+printf("PASSWORD: ");
+scanf("%s", &password2);
 puts("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 puts("-=-=-=-=-= P R O C E S S A N D O . . . =-=-=-=-=");
 puts("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-while(1){
+
+if (strcmp(password1, password2) == 0 && strcmp(login1, login2) == 0){
+    while(1){
     //Sleep(2000);
     puts("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-    printf("OLA, %s SALDO ATUAL: R$%.2f\n", nome, saldo_atual);
+    printf("OLA, %s SALDO ATUAL: R$%.2f\n", login1, saldo_atual);
     //Sleep(2000);
     puts("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
     puts("-=-=-=-= SELECIONE A FUNCAO -=-=-=-=-=");
@@ -119,9 +130,13 @@ while(1){
     else{
     puts("FUNCAO INVALIDA . !!");
     break;
+    }
 }
 }
 //Sleep(2000);
+else{
+    puts("Usuario ou senha incorretos.");
+}
 return 0;
 }
 
